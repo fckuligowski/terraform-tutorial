@@ -20,6 +20,10 @@ output "ip" {
   value = aws_eip.ip.public_ip
 }
 
+output "instance-id" {
+  value = aws_instance.example.id
+}
+
 terraform {
   backend "remote" {
     organization = "FrankK"
