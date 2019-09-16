@@ -9,6 +9,9 @@ resource "aws_instance" "example" {
   provisioner "local-exec" {
     command = "echo ${aws_instance.example.public_ip} > ip_address.txt"
   }
+  tags {
+    name = "FrankK Tutorial"
+    }
 }
 
 resource "aws_eip" "ip" {
@@ -24,12 +27,12 @@ output "instance-id" {
   value = aws_instance.example.id
 }
 
-terraform {
-  backend "remote" {
-    organization = "FrankK"
-
-    workspaces {
-      name = "Tutorial"
-    }
-  }
-}
+#terraform {
+#  backend "remote" {
+#    organization = "FrankK"
+#
+#    workspaces {
+#      name = "Tutorial"
+#    }
+#  }
+#}
